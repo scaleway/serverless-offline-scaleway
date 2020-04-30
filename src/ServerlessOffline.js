@@ -287,26 +287,10 @@ export default class ServerlessOffline {
 
       lambdas.push({ functionKey, functionDefinition })
 
-      const events = service.getAllEventsInFunction(functionKey) || []
-
-      events.forEach((event) => {
-        const { http, httpApi, schedule, websocket } = event
-
-        if (http || httpApi) {
-          httpEvents.push({
-            functionKey,
-            handler: functionDefinition.handler,
-            http: http || httpApi,
-          })
-        }
-
-        if (schedule) {
-          scheduleEvents.push({ functionKey, schedule })
-        }
-
-        if (websocket) {
-          webSocketEvents.push({ functionKey, websocket })
-        }
+      // NOTE: At the moment, we only support HTTP events
+      httpEvents.push({
+        functionKey,
+        handler: functionDefinition.handler,
       })
     })
 

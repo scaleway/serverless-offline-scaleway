@@ -2,16 +2,16 @@
 
 Welcome, and thanks in advance for your help!
 
-# How to contribute to Serverless-Offline
+# How to contribute to Serverless-Offline-scaleway
 
-To install all the locked versions for serverless-offline
+To install all the locked versions for serverless-offline-scaleway
 ```bash
 npm ci
 ```
 
 # Development setup
 
-You can test your local changes to serverless-offline if different ways
+You can test your local changes to serverless-offline-scaleway in different ways
 - Point your **serverless.yml** directly to the local changes
   - agnostic to your tech stack, as long as you have serverless.yml
 - Point your npm **package.json** to the local changes
@@ -24,7 +24,7 @@ we are using Babel to transform ES6 modules (static imports and dynamic imports)
 you have several options:
 
 1. point your `serverless.yml` plugin entry point to `src/main.js`
-    (https://github.com/dherault/serverless-offline/blob/master/src/main.js) and
+    (https://github.com/scaleway/serverless-offline-scaleway/blob/master/src/main.js) and
     uncomment the block between `use strict` and `module.exports`. that way,
     babel/register will compile es6 module syntax on the fly.
 
@@ -40,7 +40,7 @@ you have several options:
 
     provider:
       memorySize: 128
-      name: aws
+      name: scaleway
       # ....
     ```
 
@@ -54,29 +54,29 @@ you have several options:
 
 ## package.json
 
-1. Make sure you install/build your local serverless-offline
+1. Make sure you install/build your local serverless-offline-scaleway
     ```bash
-    # serverless-offline
+    # serverless-offline-scaleway
     npm ci
     npm run build
     ```
-2. Install the local serverless-offline in your other npm project as a dev dependency
+2. Install the local serverless-offline-scaleway in your other npm project as a dev dependency
     ```bash
     # in your-npm-project
-    npm i -D serverless-offline@file:../serverless-offline
+    npm i -D serverless-offline-scaleway@file:../serverless-offline-scaleway
     ```
     After this, you should see a devDependencies like the following in your package.json
     ```JSON
     {
       "devDependencies": {
-        "serverless-offline": "file:serverless-offline"
+        "serverless-offline-scaleway": "file:serverless-offline-scaleway"
       }
     }
     ```
-3. When you make changes to serverless-offline, re-run the build so Babel will
+3. When you make changes to serverless-offline-scaleway, re-run the build so Babel will
     re-compile the plugin source
     ```bash
-    # serverless-offline
+    # serverless-offline-scaleway
     npm run build
     ```
     The local file include in your-npm-project should have the linked changes in

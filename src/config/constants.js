@@ -2,9 +2,9 @@
 // https://github.com/nodejs/node/issues/12682
 export const BASE_URL_PLACEHOLDER = 'http://example'
 
-export const CUSTOM_OPTION = 'serverless-offline'
+export const CUSTOM_OPTION = 'serverless-offline-scaleway'
 
-export const DEFAULT_LAMBDA_RUNTIME = 'nodejs12.x'
+export const DEFAULT_LAMBDA_RUNTIME = 'node10'
 
 // https://docs.aws.amazon.com/lambda/latest/dg/limits.html
 export const DEFAULT_LAMBDA_MEMORY_SIZE = 1024

@@ -1,0 +1,34 @@
+service:
+  name: scaleway-node10
+
+provider:
+  name: scaleway
+  # runtime: node10
+  runtime: node8
+  # Global Environment variables - used in every functions
+  env:
+    test: test
+
+plugins:
+  - serverless-scaleway-functions
+  - ../../../src/main.js
+
+package:
+  exclude:
+    - .gitignore
+    - .git/**
+
+functions:
+  py2:
+    handler: handler.handle
+    runtime: python
+  py3:
+     handler: handler.handle
+     runtime: python3
+  first:
+    handler: first.handle
+  #   # Local environment variables - used only in given function
+    env:
+      local: local
+  graphql:
+    handler: graphql.graph
