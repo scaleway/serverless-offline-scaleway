@@ -76,11 +76,7 @@ export default class LambdaFunction {
 
     this._verifySupportedRuntime()
 
-    const env = this._getEnv(
-      provider.environment,
-      functionDefinition.environment,
-      handler,
-    )
+    const env = this._getEnv(provider.env, functionDefinition.env, handler)
 
     this.#artifact = functionDefinition.package?.artifact
     if (!this.#artifact) {
@@ -145,31 +141,8 @@ export default class LambdaFunction {
     }
   }
 
-  // based on:
-  // https://github.com/serverless/serverless/blob/v1.50.0/lib/plugins/aws/invokeLocal/index.js#L108
-  _getAwsEnvVars() {
-    return {
-      AWS_DEFAULT_REGION: this.#region,
-      AWS_LAMBDA_FUNCTION_MEMORY_SIZE: this.#memorySize,
-      AWS_LAMBDA_FUNCTION_NAME: this.#functionName,
-      AWS_LAMBDA_FUNCTION_VERSION: '$LATEST',
-      // https://github.com/serverless/serverless/blob/v1.50.0/lib/plugins/aws/lib/naming.js#L123
-      AWS_LAMBDA_LOG_GROUP_NAME: `/aws/lambda/${this.#functionName}`,
-      AWS_LAMBDA_LOG_STREAM_NAME:
-        '2016/12/02/[$LATEST]f77ff5e4026c45bda9a9ebcec6bc9cad',
-      AWS_REGION: this.#region,
-      LAMBDA_RUNTIME_DIR: '/var/runtime',
-      LAMBDA_TASK_ROOT: '/var/task',
-      LANG: 'en_US.UTF-8',
-      LD_LIBRARY_PATH:
-        '/usr/local/lib64/node-v4.3.x/lib:/lib64:/usr/lib64:/var/runtime:/var/runtime/lib:/var/task:/var/task/lib',
-      NODE_PATH: '/var/runtime:/var/task:/var/runtime/node_modules',
-    }
-  }
-
   _getEnv(providerEnv, functionDefinitionEnv, handler) {
     return {
-      ...this._getAwsEnvVars(),
       ...providerEnv,
       ...functionDefinitionEnv,
       _HANDLER: handler, // TODO is this available in AWS?

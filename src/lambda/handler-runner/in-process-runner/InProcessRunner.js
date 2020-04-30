@@ -89,10 +89,10 @@ export default class InProcessRunner {
       throw new Error(`Uncaught error in '${this.#functionKey}' handler.`)
     }
 
-    // // not a Promise, which is not supported by aws
-    // if (result == null || typeof result.then !== 'function') {
-    //   throw new Error(`Synchronous function execution is not supported.`)
-    // }
+    // not a Promise, then return result
+    if (result != null && typeof result.then !== 'function') {
+      return result
+    }
 
     const callbacks = [callbackCalled]
 
