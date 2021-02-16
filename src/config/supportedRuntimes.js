@@ -5,7 +5,7 @@
 export const supportedGo = new Set([])
 
 // NODE.JS
-export const supportedNodejs = new Set(['node10', 'node8'])
+export const supportedNodejs = new Set(['node10', 'node8', 'node14'])
 
 // PROVIDED
 export const supportedProvided = new Set(['provided'])
