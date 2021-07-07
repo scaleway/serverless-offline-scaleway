@@ -2,7 +2,6 @@
 
 module.exports = {
   hooks: {
-    'pre-commit': 'npm run lint',
-    'pre-push': 'npm run lint && npm build',
+    'pre-push': 'npm build',
   },
 }

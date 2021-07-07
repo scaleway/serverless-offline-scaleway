@@ -1,6 +1,6 @@
 {
   "name": "serverless-offline-scaleway",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Emulate Scaleway Serverless Platform locally when developing your Serverless project",
   "license": "MIT",
   "main": "dist/main.js",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "list-contributors": "echo 'clone https://github.com/mgechev/github-contributors-list.git first, then run npm install' && cd ../github-contributors-list && node bin/githubcontrib --owner dherault --repo serverless-offline --sortBy contributions --showlogin true --sortOrder desc > contributors.md",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run lint && npm run build && npm test",
+    "prepublishOnly": "npm run build",
     "test": "npm run build && jest --verbose --silent --runInBand",
     "test:cov": "npm run build && jest --coverage --silent --runInBand --collectCoverageFrom=src/**/*.js",
     "test:log": "npm run build && jest --verbose"
