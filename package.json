@@ -1,6 +1,6 @@
 {
   "name": "serverless-offline-scaleway",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Emulate Scaleway Serverless Platform locally when developing your Serverless project",
   "license": "MIT",
   "main": "dist/main.js",
@@ -94,7 +94,7 @@
     "p-map": "^3.0.0",
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
-    "serverless": "2.24.0"
+    "serverless": "^2.48.1"
   },
   "peerDependencies": {
     "serverless": "^2.24.0"
